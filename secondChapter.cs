@@ -134,3 +134,86 @@ namespace ConsoleApp6
         }
     }
 }
+
+//3.1
+
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0, maxi = 0, i = 0, c = 0, maxc = 0, inc = 0;
+            double max = 0, inp = 0;
+
+            Console.WriteLine("2.13 Введите размер массива:");
+
+            if (Int32.TryParse(Console.ReadLine(), out n) && n >= 1)
+            {
+
+                double[] mas = new double[n];
+                List<double> list = new List<double>();
+                List<int> listi = new List<int>();
+
+                Console.WriteLine("2.13 Введите элементы массива:");
+
+                for (i = 0; i < mas.Length; i++)
+                {
+                    Double.TryParse(Console.ReadLine(), out inp);
+                    mas[i] = inp;
+                }
+
+                for (i = 0; i < mas.Length; i++)
+                {
+                    if (mas[i]>=max)
+                    {
+                        max = mas[i];
+                        list.Add(mas[i]);
+                        listi.Add(i);
+                    }
+                }
+
+                for (i = 0; i < list.Count-1; i++)
+                {
+                    c = 0;
+                    for (int j = i; j < list.Count; j++)
+                    {
+                        if(list[i] == list[j])
+                        {
+                            c++;
+                        }
+                    }
+                    if (c > maxc)
+                    {
+                        maxc = c;
+                        max = list[i];
+                    }
+                }
+
+                int[] masmax = new int[maxc];
+
+                for (i = 0; i < list.Count; i++)
+                {
+                    if (list[i] == max)
+                    {
+                        masmax[inc] = listi[i];
+                        inc++;
+                    }
+                }
+
+                Console.WriteLine("3.1 Массив индексов:");
+
+                for (i = 0; i < maxc; i++)
+                {
+                    Console.WriteLine(masmax[i]);
+                }
+            }
+        }
+    }
+}
+
+
+
