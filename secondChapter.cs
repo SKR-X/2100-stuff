@@ -271,3 +271,53 @@ namespace ConsoleApp7
     }
 }
 
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0, i = 0, c = 1, j = 0;
+            double inp = 0, temp = 0;
+            Console.WriteLine("3.8 Введите размер массива:");
+
+            if (Int32.TryParse(Console.ReadLine(), out n) && n >= 1)
+            {
+
+                double[] mas = new double[n];
+
+                Console.WriteLine("3.8 Введите элементы массива:");
+
+                for (i = 0; i < mas.Length; i++)
+                {
+                    Double.TryParse(Console.ReadLine(), out inp);
+                    mas[i] = inp;
+                }
+
+                Console.WriteLine("3.8 Сортированный:");
+
+                for (i = 0; i < mas.Length-1; i++)
+                {
+                    for (j = i+1; j < mas.Length; j++)
+                    {
+                        if ((mas[i] < mas[j]) && (mas[i]<0 && mas[j]<0))
+                        {
+                            temp = mas[i];
+                            mas[i] = mas[j];
+                            mas[j] = temp;
+                        }
+                    }
+                }
+
+                for (i = 0; i < mas.Length; i++)
+                {
+                    Console.WriteLine(mas[i]);
+                }
+            }
+        }
+    }
+}
