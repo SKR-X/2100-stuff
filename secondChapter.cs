@@ -453,3 +453,55 @@ namespace ConsoleApp7
         }
     }
 }
+
+//3.13
+
+using System;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 0, maxi = 0, i = 0, j = 0;
+            double max = 0, inp = 0;
+            bool exit = false;
+
+            Console.WriteLine("3.13 Введите размер массива:");
+
+            if (Int32.TryParse(Console.ReadLine(), out n) && n >= 1)
+            {
+
+                List<double> list = new List<double>();
+
+                Console.WriteLine("3.13 Введите элементы массива:");
+
+                for (i = 0; i < n; i++)
+                {
+                    Double.TryParse(Console.ReadLine(), out inp);
+                    list.Add(inp);
+                }
+
+                for (i = 0; i < list.Count-1; i++)
+                {
+                    for (j = i + 1; j < list.Count; j++)
+                    {
+                        if (list[i] == list[j])
+                        {
+                            list.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                }
+
+                Console.WriteLine("3.13 Ответ:");
+
+                for (i = 0; i < list.Count; i++)
+                {
+                    Console.WriteLine(list[i]);
+                }
+            }
+        }
+    }
+}
