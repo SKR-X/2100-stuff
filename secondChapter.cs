@@ -395,3 +395,61 @@ namespace ConsoleApp7
     }
 }
 
+
+//3.12
+
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0, i = 0, c = 0, j = 0, max = 0;
+            double inp = 0, temp = 0;
+
+                double[] mas = new double[12];
+
+                Console.WriteLine("3.12 Введите элементы массива:");
+
+            for (i = 0; i < mas.Length; i++)
+            {
+                Double.TryParse(Console.ReadLine(), out inp);
+                mas[i] = inp;
+            }
+
+            for (i = 0; i < mas.Length; i++)
+                {
+                if (mas[i]>=0)
+                {
+                    c++;
+                }
+                }
+
+            double[] maspol = new double[c];
+
+            c = 0;
+
+            for (i = 0; i < mas.Length; i++)
+            {
+                if (mas[i]>=0)
+                {
+                    maspol[c] = mas[i];
+                    c++;
+                }
+            }
+
+            mas = maspol;
+
+            Console.WriteLine("3.12 Ответ массив:");
+
+            for (i = 0; i < mas.Length; i++)
+            {
+                Console.WriteLine(mas[i]);
+            }
+        }
+    }
+}
