@@ -321,3 +321,77 @@ namespace ConsoleApp7
         }
     }
 }
+
+//3.9
+
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0, i = 0, c = 1, j = 0,max = 0;
+            double inp = 0, temp = 0;
+            Console.WriteLine("3.9 Введите размер массива:");
+
+            if (Int32.TryParse(Console.ReadLine(), out n) && n >= 1)
+            {
+
+                double[] mas = new double[n];
+
+                Console.WriteLine("3.9 Введите элементы массива:");
+
+                for (i = 0; i < mas.Length; i++)
+                {
+                    Double.TryParse(Console.ReadLine(), out inp);
+                    mas[i] = inp;
+                }
+
+                for (i = 0; i < mas.Length-1; i++)
+                {
+                    if (mas[i+1] < mas[i])
+                    {
+                        c++;
+                        if (c > max)
+                        {
+                            max = c;
+                        }
+                    } else
+                    {
+                        if(c>max)
+                        {
+                            max = c;
+                        }
+                        c = 1;
+                    }
+                }
+                c = 1;
+                for (i = 0; i < mas.Length-1; i++)
+                {
+                    if (mas[i + 1] > mas[i])
+                    {
+                        c++;
+                        if (c > max)
+                        {
+                            max = c;
+                        }
+                    }
+                    else
+                    {
+                        if (c > max)
+                        {
+                            max = c;
+                        }
+                        c = 1;
+                    }
+                }
+                    Console.WriteLine($"Ответ: {max}");
+            }
+        }
+    }
+}
+
